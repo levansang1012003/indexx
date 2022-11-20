@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script >
+       //bai1
+       console.log(Number.isInteger(453)); 
+       console.log(Number.isInteger(NaN));
+     
+
+       //bai2
+       Array.prototype.swap = function (a, b) {
+	var valueAtIndex = this[a]
+ 
+	this[a] = this[b]
+	this[b] = valueAtIndex
+}
+ 
+Array.prototype.permutation = function permutation(array, n) {
+	array = array || this
+	n = n || array.length
+ 
+	var result = []
+ 
+	if (n == 1)
+		result = [array.slice()]
+	else {
+		const nextN = n - 1
+ 
+		for (var i = 0; i < nextN; i++) {
+			result.push(...permutation(array, nextN))
+			array.swap(Number(!(n % 2)) && i, nextN)
+		}
+ 
+		result.push(...permutation(array, nextN))
+	}
+ 
+	return result
+}
+ 
+console.log([1, 2, 3].permutation())
+
+
+
+
+
+        //bai3
+
+        let log=['S','S',' B'];
+        log.indexOf();
+        console.log(log);
+     
+   
+
+    </script>
+    
+    
+</body>
+</html>
